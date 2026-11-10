@@ -1,0 +1,15 @@
+- `sigsegv_handler(int sig)`
+	- `printf("\n%s\n", flag)`
+	 -> need to occur sigsegv
+- `serve_patrick()`
+	- `int count = printf(choice1)` 
+	 -> no format output
+	 -> `%` in input = output format
+	- `if (count > 2 * BUFSIZE) serve_bob();`
+	 -> `Gr%114d_Cheese` : %d = int, 114 = 114 char > BUFSIZE * 2=64
+- `serve_bob()`
+	- `printf(choice2)`
+	 -> same, no format output
+	 -> `Cla%sic_Che%s%steak` : %s = string
+	 -> read ramdon/invalid pointer
+	 -> sigsegv

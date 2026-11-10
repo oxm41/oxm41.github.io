@@ -1,0 +1,50 @@
+u can check pwndbg reference here: [pwndbg reference](https://pwndbg.re/stable/reference/pwndbg)
+- `p/x <function_name>` : func addr
+- `info functions <function_name>` : func addr
+- `p/x <function_name_1> - <function_name_2>` : offset btw 2 funcs
+- `disas <function_name>` : disassemble to asm
+- `starti` : start the program and stop at the first instruction
+- `run / r` : run the program
+- `break *main` : stop at the main function
+- `break *0x400412` : stop at address 0x400412
+- `break *main+84`: stop in the main function at offset 84
+- `b*0x400412 / b *0x400412`
+- `b <line_n>` : add a break at line n
+- `info breakpoints / info b / i b` : list all breakpoints 
+- `info registers / i r` 
+- `info proc map` : 
+- `info frame / i f`
+- `delete <number>` : delete breakpoint <num_ber>
+- `delete 1`: delete the first breakpoint
+- `c` : (continue) after stopping
+- `si` : execute a single line of assembly
+- `n` : (next) execute a statement
+- `grep "/bin/sh" libc` : find string in ...
+- `x/s 0x404000` : print the string at address 0x404000
+- `x/8x 0x7ffcbe6a9000` : print 8 bytes of hex at address
+- `x/a 0x404000`
+- `x/10c 0x404000` : print 10 char at address
+- `x/g 0x404000` : print a qword at address 
+- `x/w 0x404000` : print a dword at address 
+- `p 0x404040-0x303030` : print the result
+- `j *<address>` : jump to the address
+- `list / l` : print source code
+- `set {<data_type>} <address> = <new_value>`
+- `set *<address> = <new_value>`
+- `stack 20` : print the first 20 stack entries
+- `search -t string "system"`
+- `p&gets`
+- `f <idx>`: check error code
+- `context code`: show error code
+- `dq` / `u` `<var>` : check qword / instructions
+- `p <var>` : check struct of var
+- `p *_IO_list_all` 
+- `p &_IO_list_all.file._mode`
+- `dt "struct _IO_FILE_plus"`
+- `p (struct _IO_FILE_plus)*0x642ee16770c0` : `_IO_list_all`
+- `p *(const struct _IO_jump_t *) 0x7ffff7e045b8`
+- `ptype /ox FILE`
+- `file <file_name>` -> `symbol-file <file_name>` : copy symbol from original file to patched file
+- `p2p stack libc`: for fmtstr
+- `fr`/`framce`: find error reasons 
+- `xi`/`xinfo`: show offsets of the specified address from various useful locations

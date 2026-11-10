@@ -1,0 +1,1 @@
+- occurs when free a chunk (eg: 0x10 size, an obj, not pointer), data (attributes) still available and accessible in chunks. if we edit that data by creating a chunk with the same size (bc memory will use freed chunk in bin), it will overwrite that and then we can control program

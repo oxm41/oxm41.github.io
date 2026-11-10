@@ -1,0 +1,5 @@
+- bypass tcache by abusing heap consolidation of unsorted bin
+- set up: 7 freed chunks in tcache - chunk A - chunk B (victim chunk) - guard chunk
+- free chunk B -> free chunk A -> heap consolidation
+- now take one chunk out of tcache by malloc, and free chunk B again
+- malloc chunk with size = chunk A + chunk B + 0x10 for tcache poisoning

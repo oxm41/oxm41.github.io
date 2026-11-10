@@ -1,0 +1,2 @@
+- context: when initial buf space is too small to fit a full payload, we will send desired shellcode (egg) elsewhere and use original space (egg hunter) to find and trigger new one
+- payload includes shellcode to loop using read(), write(), with brute force

@@ -1,0 +1,3 @@
+- goal: overwrite `__malloc_hook` so when `malloc`, `free`, `realloc` it will exec `__malloc_hook` first (to skip `free`...)
+- search: `p&__free_hook` / `libc.sym['__free_hook']`
+- get removed entirely in glibc 2.36

@@ -1,0 +1,12 @@
+- `check_win()`
+	- `strcmp(safe_var, "bico") != 0`
+	 -> change safe_var to other string
+- `INPUT_DATA_SIZE = 5`
+- `write_buffer()`
+	- `scanf("%s", input_data)` 
+	 -> dont check size of string -> input more than 5 -> buffer overflow
+- 0x5c97408bc2b0 -> pico
+- 0x5c97408bc2d0 -> bico
+- find offset = 0x20 = 32 bytes
+	-> write more than 32-char-string
+	- `print("A"*33)`

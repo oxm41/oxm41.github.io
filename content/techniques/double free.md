@@ -1,0 +1,2 @@
+- like uaf? but to double free, we have to change "key", which is behind `fd` pointer, on 0x18 offset (it was `bk` pointer on libc < 2.29)
+- remember to set up chunk size field

@@ -1,0 +1,10 @@
+- `win()` but no call in `main()`
+- `void (*foo)(void) = (void (*)())val; foo()`
+	- `void (*foo)(void)` : pointer `foo` to a func
+	- `(void (*)())val` : explicitly assign `val` as func pointer
+	- `foo()` : call func to which `foo` points
+  -> input `win` func address
+- knowing main addr -> find offset -> main = win  + offset
+- `gdb .\vuln `
+- `p/x main - win` = offset
+- `p/x main-offset` = win

@@ -1,0 +1,2 @@
+- occurs when index is an INT (`scanf(%d)`) and we input a negative int
+- we can access previous data from stack: leak addr, overwrite

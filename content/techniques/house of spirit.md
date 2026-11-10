@@ -1,0 +1,7 @@
+- goal: pass an arb ptr to `free()` to link a fake chunk into an allocatable bin.
+- if you can control the arg of `free()`, you can perform an arb write on stack
+- create a fake chunk header on stack, for eg `size = 0x41`
+- to bypass program security, another fake chunk header with offset 0x40 is also a must
+- overwrite heap pointer = fake chunk header addr + 0x8
+- free and malloc again, now we have arb write on stack
+- ***note: fake small chunks are restricted by the arena contiguity flag. chunks must be 16-byte aligned. the NON_MAIN_ARENA and IS_MMAPED bits must not be set***

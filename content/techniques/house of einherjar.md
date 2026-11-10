@@ -1,0 +1,9 @@
+- goal: clear a chunk's `prev_inuse` bit to consolidate backwards with a fake or existing free chunk, creating overlapping chunks
+- have one off-by-null bug but to consolidate an addr far from heap (bss,...)
+- set up a fake chunk on bss, with valid size, fd and bk ptr to bypass unsorted bin check
+- cal dist btw chunk on heap and fake chunk on bss: `offset = addr(heap) - addr(bss)`
+- overwrite `prev_size` of heap chunk = `offset`
+- use off-by-null to modify `PREV_INUSE` flag of that heap chunk
+- free heap chunk -> backward consolidation -> merge fake and heap chunk into one chunk on bss
+- now we can write arb every addr from bss to heap
+- ***note: GLIBC >= 2.26 introduced a `size` vs `prev_size` check, requiring to set a valid size field in the fake chunk***
